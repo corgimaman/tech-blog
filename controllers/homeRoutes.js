@@ -5,24 +5,12 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         // get all posts and JOIN with user data
-        const postData = await Post.findAll({
-            attributes: [{all:true}],
-            include: [
-                {
-                    model: Comment,
-                    attributes: [{all:true}],
-                    include: {
-                        model: User,
-                        attributes: ['name']
-                    }
-                },
-                {
-                    model: User,
-                    attributes: ['name']
-                }
-            ],
-        });
-
+        console.log("\n\n\n\nI am here\n\n\n\n")
+        // get all posts and JOIN with user data
+        const postData = await Post.findAll({ include: [ User ] });
+        console.log('\n\n\n\n\n')
+        console.log({postData})
+        console.log('\n\n\n\n\n')
         const posts = postData.map((post) => post.get({ plain: true }));
 
         res.render('homepage', {
