@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js" defer></script>
+</head>
+<body>
+    <header>
+         <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo right">Tech Blog</a>
+      <ul id="nav-mobile" class="left hide-on-med-and-down">
+        <li><a href="/">Home</a></li>
+        {{#if logged_in}}
+        <li><a href="/dashboard">Dashboard</a></li>
+        <li><a href="/" id="logout">Logout</a></li>
+        {{#else}}
+        <a href="/login">login</a>
+        {{/if}}
+      </ul>
+    </div>
+  </nav>
+    </header>
+    <main class="container">
+    {{{ body }}}
+    </main>
+
+  {{#if logged_in}}
+  <div class="fixed-action-btn">
+  <a href="/dashboard">
+    <a class="btn-floating btn-large red" title="Make a new post">
+      <i class="fas fa-pencil-alt prefix"></i>
+    </a>
+  </a>
+</div>
+  <script src="/js/logout.js"></script>
+  {{/if}}
+</body>
+</html>
