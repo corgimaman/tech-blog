@@ -2,13 +2,13 @@
     <div class="col s12">
         <div class="card horizontal">
           <div class="card-stacked">
-            <a href="/post/{{id}}"><div class="card-title center-align">{{title}}</div></a>
+            <a href="/post/{{id}}"><div class="card-title center-align">{{post.title}}</div></a>
             <div class="card-content">
-              <p>{{body}}</p>
+              <p>{{post.body}}</p>
             </div>
             <div class="card-action nav-wrapper">
               <a href="/post/{{id}}">View/Add Comments</a>
-              <span class="right">Posted By {{user.name}} On {{format_time date_created}}</span>
+              <span class="right">Posted By {{user.name}} On {{format_time post.date_created}}</span>
             </div>
           </div>
         </div>
