@@ -1,0 +1,23 @@
+<div class="row">
+    <div class="col s12">
+        <div class="card horizontal">
+          <div class="card-stacked">
+            <a href="/post/{{id}}"><div class="card-title center-align">{{post.title}}</div></a>
+            <div class="card-content">
+              <p>{{post.body}}</p>
+            </div>
+            <div class="card-action nav-wrapper">
+              <span class="right">Posted By {{post.user.name}} On {{format_time post.date_created}}</span>
+              {{#if currentUser}}
+              {{!-Need to add code to edit/delete post}}
+              {{/if}}
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+
+{{! Need to add "add comment" feature }}
+{{#each post.comments as |postComments| }}
+{{> comment-details postComments}}
+{{/each}}
