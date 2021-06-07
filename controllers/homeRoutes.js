@@ -6,7 +6,6 @@ router.get('/', async (req, res) => {
     try {
         // get all posts and JOIN with user data
         console.log("\n\n\n\nI am here\n\n\n\n")
-        // get all posts and JOIN with user data
         const postData = await Post.findAll({ include: [ User ] });
         console.log('\n\n\n\n\n')
         console.log({postData})
