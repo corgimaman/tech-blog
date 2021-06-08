@@ -12,7 +12,7 @@ const deletePostHandler = async (event) => {
 
         if(response.ok) {
             alert("Post deleted successfully!");
-            document.location.replace('/dashboard');
+            document.location.replace('/dashboard/home');
         } else {
             alert(response.statusText);
         }

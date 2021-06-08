@@ -14,7 +14,7 @@ const editPostHandler = async (event) => {
 
         if(response.ok) {
             alert("Post updated successfully!");
-            document.location.replace('/dashboard');
+            document.location.replace('/dashboard/home');
         } else {
             alert(response.statusText);
         }

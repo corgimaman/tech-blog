@@ -13,7 +13,7 @@ const newPostHandler = async (event) => {
 
         if(response.ok) {
             alert("Post created successfully!");
-            document.location.replace('/dashboard');
+            document.location.replace('/dashboard/home');
         } else {
             alert(response.statusText);
         }

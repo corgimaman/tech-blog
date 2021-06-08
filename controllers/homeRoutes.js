@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/', async (req, res) => {
     try {
         // get all posts and JOIN with user data
-        console.log("\n\n\n\nI am here\n\n\n\n")
+        console.log("\n\n\n\nI am here in home routes\n\n\n\n")
         const postData = await Post.findAll({ include: [ User ] });
         console.log('\n\n\n\n\n')
         console.log({postData})
@@ -67,7 +67,7 @@ router.get('/register', (req, res) => {
 });
 
 // dashboard routes
-
+/*
 router.get('/dashboard', withAuth, async (req, res) => {
     try {Post.findAll({
         where: {
@@ -107,6 +107,6 @@ router.get('/dashboard/new', withAuth, async (req, res) => {
     res.render('new', {
        logged_in: req.session.logged_in 
     });
-});
+}); */
 
 module.exports = router;

@@ -40,6 +40,17 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// router.post('/', withAuth, (req, res) => {
+//   Post.create({
+//     title: req.body.title,
+//     body: req.body.body,
+//     user_id: req.session.user_id
+//   }).then(data => res.json(data)).catch(err => {
+//     console.log(err);
+//     res.status(500).json(err);
+//   })
+// })
+
 // update post:
 router.put('/:id', withAuth, async (req, res) => {
   try {
