@@ -23,19 +23,14 @@ router.get('/', async (req, res) => {
 
 router.get('/post/:id', async (req, res) => {
     try { 
-        const singlePost = Post.findOne({
-        where: {
-            id: req.params.id
-        },
+        const singlePost = Post.findByPk(req.params.id, {
         attributes: [{all:true}],
         include: [
-            {
-                model: User,
-                attributes: ['name']
-            },
+            User,
             {
                 model: Comment,
-                attributes: [{all:true}]
+                attributes: [{all:true}],
+                include: [User]
             }
         ]
     });
@@ -93,18 +88,13 @@ router.get('/dashboard', withAuth, async (req, res) => {
 
 router.get('/dashboard/edit/:id', withAuth, async (req,res) => {
     try {
-        const singlePost = Post.findOne({
-        where: {
-            id: req.params.id
-        },
-        attributes: { exclude: 'user_id' }
-    });
+        const singlePost = Post.findByPk(req.params.id);
     if(!singlePost) {
         res.status(404).json({message: 'No post found with this id!'});
         return;
     }
     const post = singlePost.get({plain: true});
-    res.render('post', {
+    res.render('edit', {
         post,
         logged_in: req.session.logged_in
     });
