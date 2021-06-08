@@ -39,7 +39,7 @@ router.post('/', withAuth, async (req, res) => {
     }
   });
 
-  // update comment:
+// update comment:
 router.put('/:id', withAuth, async (req, res) => {
     try {
       Comment.update(
@@ -84,4 +84,4 @@ router.delete('/:id', withAuth, async (req, res) => {
     }
   });
   
-  module.exports = router;
+module.exports = router;
