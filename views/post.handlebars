@@ -10,6 +10,9 @@
               <span class="right">Posted By {{post.user.name}} On {{format_time post.date_created}}</span>
               {{#if currentUser}}
               {{!-Need to add code to edit/delete post}}
+              <span class="left">
+                <a href="/post/edit/{{id}}" id="editPost">Edit or Delete Post</a>
+              </span>
               {{/if}}
             </div>
           </div>
@@ -18,6 +21,7 @@
 </div>
 
 {{! Leave A Comment Section}}
+{{#if logged_in}}
 <div class="container center-align">
     <div class="row">
       <form class="col s12">
@@ -37,6 +41,7 @@
   </button>
   </div>
 </div>
+{{/if}}
 
 {{! Need to add "add comment" feature }}
 {{#each post.comments as |postComments| }}
